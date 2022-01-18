@@ -36,6 +36,14 @@ function App() {
         <p>2월 17일 발행</p>
         <hr />
       </div>
+      <div>
+      <div className="modal">
+         <h2>제목</h2>
+         <p>날짜</p>
+         <p>상세내용</p>
+      </div>
+    
+      </div>
     </div>
   );
 }
