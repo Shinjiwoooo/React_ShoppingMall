@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: url("./main.png");
   color: white;
   margin-bottom: 30px;
 }
@@ -19,10 +20,7 @@
 .App {
   text-align: center;
 }
-
-.background{
-  background-image: url('https://codingapple1.github.io/shop/shoes1.jpg');
-}
+ 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
