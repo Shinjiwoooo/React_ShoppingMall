@@ -16,9 +16,10 @@ function Detail(props) {
     useEffect(()=>{
         let 타이머 = setTimeout(()=>{
             alert변경(false)
-          console.log('2초지남')
         }, 2000)
-    },[alert])
+
+        return () => { clearTimeout(타이머)}
+    },[])
 
     
 

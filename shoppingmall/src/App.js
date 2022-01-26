@@ -5,7 +5,10 @@ import './App.css';
 import React, { useState } from 'react';
 import Data from './data.js'
 import Detail from './Detail.js'
+import axios  from  'axios';
 import {Link, Route, Switch} from 'react-router-dom'
+
+
 
 function App() {
  
@@ -48,6 +51,15 @@ function App() {
           }
         </div>
       </div>
+      <button className="btn btn-primary"onClick={() =>{
+        axios.get('https://dongmyounglee.github.io/data/data2.json')
+        .then((result)=>{
+          console.log(result)   
+        })
+        .catch(()=>{ 
+          console.log('Ajax 실패')
+        })
+      }}>더보기</button>
       </Route>
       <Route path="/detail/:id">
           <Detail ring={ring}></Detail>
