@@ -45,19 +45,34 @@ function Detail(props) {
           }
         <div className="row">
           <div className="col-md-6">
-            <img src={"https://dongmyounglee.github.io/img/ring0"+(찾은상품.id+1)+".png"} width="100%" />
+            <img src={"https://Shinjiwoooo.github.io/img/ring0"+(찾은상품.id+1)+".png"} width="100%" />
           </div>
           <div className="col-md-6 mt-4">
             <h4 className="pt-5">{찾은상품.title}</h4>
             <p>{찾은상품.content}</p>
             <p>{찾은상품.price}</p>
-            <button className="btn btn-danger">주문하기</button> 
+            <Info 재고={props.재고}></Info>
+            <button className="btn btn-danger" onClick={()=>{
+              let copy = props.재고
+              copy = props.재고 -1
+              props.재고변경(copy)
+
+              if (copy === 0){
+                props.재고변경('품절')
+              }
+            }}>주문하기</button> 
             <button className="btn btn-danger onClick" onClick={()=>{
                 history.push('/')
             }}>뒤로가기</button> 
           </div>
         </div>
       </div>
+    )
+  }
+
+  function Info(props){
+    return(
+      <p>재고: {props.재고}</p>
     )
   }
   export default Detail

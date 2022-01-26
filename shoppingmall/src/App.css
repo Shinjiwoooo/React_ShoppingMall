@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap');
+.title p{
+  font-style: italic;
+  color:#840C15;
+  font-size:35px;
+  margin:0;
+  font-family: 'Great Vibes', cursive;
+}
 .jumbotron {
   width: 100%;
   height: 250px;

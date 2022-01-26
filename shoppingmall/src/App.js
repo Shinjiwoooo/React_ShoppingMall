@@ -13,24 +13,17 @@ import {Link, Route, Switch} from 'react-router-dom'
 function App() {
  
   let [ring, ring변경] = useState(Data)
-
+  let [재고, 재고변경] = useState(10)
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">ShoeShop</Navbar.Brand>
+          <Navbar.Brand href="#home" className="title"><p>Cartier</p></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <Nav.Link as={Link} to="/detail">Detail</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -52,9 +45,10 @@ function App() {
         </div>
       </div>
       <button className="btn btn-primary"onClick={() =>{
-        axios.get('https://dongmyounglee.github.io/data/data2.json')
+        axios.get('https://Shinjiwoooo.github.io/data/data2.json')
         .then((result)=>{
-          console.log(result)   
+          console.log(result)
+          ring변경([...ring, ...result.data])   
         })
         .catch(()=>{ 
           console.log('Ajax 실패')
@@ -62,7 +56,7 @@ function App() {
       }}>더보기</button>
       </Route>
       <Route path="/detail/:id">
-          <Detail ring={ring}></Detail>
+          <Detail ring={ring} 재고={재고} 재고변경={재고변경}></Detail>
       </Route>
 
       <Route path="/:id">
@@ -91,7 +85,7 @@ function JumboTron() {
 function Card(props){
   return(
     <div className="col-md-4">
-      <img src={"https://dongmyounglee.github.io/img/ring0"+(props.i + 1)+".png"} width="100%" />
+     <a href={"/detail/"+(props.i)}><img src={"https://Shinjiwoooo.github.io/img/ring0"+(props.i + 1)+".png"} width="100%" /></a> 
       <h4>{props.ring.title}</h4>  
       <p>{props.ring.content}</p>
       <p>{props.ring.price}</p>
